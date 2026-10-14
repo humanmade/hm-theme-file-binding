@@ -1,0 +1,17 @@
+# Git attributes for release automation
+#
+# Anything marked `export-ignore` is stripped from `git archive` output, which
+# is how the distributable plugin ZIP is built. This file is therefore the
+# single source of truth for what ships in a release. The compiled `build/`
+# directory is intentionally NOT ignored so it is included in release archives.
+
+/.github export-ignore
+/src export-ignore
+/tests export-ignore
+/node_modules export-ignore
+/.gitignore export-ignore
+/.gitattributes export-ignore
+/package.json export-ignore
+/package-lock.json export-ignore
+/phpcs.xml export-ignore
+/phpunit.xml.dist export-ignore
