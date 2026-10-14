@@ -1,0 +1,16 @@
+# Dependencies
+/node_modules/
+/vendor/
+/composer.lock
+
+# Build output, committed only to release tags by CI
+/build/
+
+# PHPUnit
+/.phpunit.result.cache
+/.phpunit.cache/
+
+# OS and editor files
+.DS_Store
+.idea/
+.vscode/
