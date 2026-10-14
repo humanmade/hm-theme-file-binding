@@ -1,0 +1,16 @@
+{
+	"name": "hm-theme-file-binding",
+	"version": "0.0.0",
+	"private": true,
+	"description": "Editor side of the hm/theme-file block bindings source",
+	"author": "Human Made",
+	"license": "GPL-2.0-or-later",
+	"scripts": {
+		"build": "wp-scripts build",
+		"start": "wp-scripts start",
+		"lint:js": "wp-scripts lint-js src"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^36.1.0"
+	}
+}

@@ -17,6 +17,7 @@ const SOURCE = 'hm/theme-file';
  */
 function bootstrap(): void {
 	add_action( 'init', __NAMESPACE__ . '\\register_sources' );
+	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_editor_assets' );
 }
 
 /**
@@ -52,6 +53,41 @@ function register_sources(): void {
 			]
 		);
 	}
+}
+
+/**
+ * Load the editor side of the sources, with their names and the theme's URL.
+ */
+function enqueue_editor_assets(): void {
+	$asset_file = dirname( __DIR__ ) . '/build/index.asset.php';
+
+	if ( ! file_exists( $asset_file ) ) {
+		return;
+	}
+
+	$asset = require $asset_file;
+
+	wp_enqueue_script(
+		'hm-theme-file-binding',
+		plugins_url( 'build/index.js', PLUGIN_FILE ),
+		$asset['dependencies'],
+		$asset['version'],
+		true
+	);
+
+	wp_add_inline_script(
+		'hm-theme-file-binding',
+		sprintf(
+			'window.hmThemeFileBinding = %s;',
+			wp_json_encode(
+				[
+					'sources'  => get_source_names(),
+					'themeUri' => get_stylesheet_directory_uri(),
+				]
+			)
+		),
+		'before'
+	);
 }
 
 /**
