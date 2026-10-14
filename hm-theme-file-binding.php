@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: HM Theme File Binding
- * Plugin URI: https://humanmade.com
+ * Plugin URI: https://github.com/humanmade/hm-theme-file-binding
  * Description: Block bindings source that points a block attribute at a file in the active theme.
  * Version: __VERSION__
  * Requires at least: 6.7
